@@ -17,7 +17,7 @@ export default function AlbumCreate() {
 //   Ajout du hook pour récupérer le record (ici, les albums)
   const record = useRecordContext();
 //   Import du hook pour récupérer le controller de l'edit (ici, save et son comportement)
-  const { save } = useEditController();
+  const { save } = useEditController({ redirect: "show" });
 
 //  Fonction pour gérer la modification des champs album
   const handleChange = (event: any) => {
