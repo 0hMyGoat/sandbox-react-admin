@@ -8,6 +8,10 @@ import {
   useRecordContext,
 } from "react-admin";
 
+/**
+ * Inputs de création d'albums.
+ * @returns Formulaire d'ajout d'un album
+ */
 export default function AlbumCreate() {
     // Création d'un state pour stocker l'album
   const [newAlbum, setNewAlbum] = React.useState({
@@ -19,12 +23,18 @@ export default function AlbumCreate() {
 //   Import du hook pour récupérer le controller de l'edit (ici, save et son comportement)
   const { save } = useEditController({ redirect: "show" });
 
-//  Fonction pour gérer la modification des champs album
+  /**
+   * Met à jour l'album dans le state.
+   * @param event 
+   */
   const handleChange = (event: any) => {
     setNewAlbum({ ...newAlbum, [event.target.name]: event.target.value });
   };
 
-//   Fonction pour gérer l'ajout d'un album lorsque l'utilisateur clique sur le bouton
+  /**
+   * Ajoute l'album à la liste et l'enregistre.
+   * @param event 
+   */
   const handleSubmit = (event: any) => {
     //  On empêche le comportement par défaut du formulaire
     event.preventDefault();
