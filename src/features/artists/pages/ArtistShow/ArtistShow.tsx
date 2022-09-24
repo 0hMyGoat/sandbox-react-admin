@@ -10,6 +10,10 @@ import {
 } from "react-admin";
 import { AlbumIterator } from "../../components";
 
+/**
+ * Affiche le composant qui display les détails d'un artiste.
+ * @returns composant détail artiste
+ */
 export default function ArtistShow() {
   return (
     <Show>
