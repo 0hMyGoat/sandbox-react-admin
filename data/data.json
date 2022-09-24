@@ -1,56 +1,117 @@
 {
-    "artists": [
+  "artists": [
+    {
+      "id": "1",
+      "first_name": "David",
+      "last_name": "Bowie",
+      "birth_date": "1947-01-08",
+      "death_date": "2016-01-10",
+      "birth_place": "Brixton, London, England",
+      "death_place": "New York, New York, USA",
+      "albums": [
         {
-            "id": "1",
-            "first_name": "David",
-            "last_name": "Bowie",
-            "birth_date": "1947-01-08",
-            "death_date": "2016-01-10",
-            "birth_place": "Brixton, London, England",
-            "death_place": "New York, New York, USA",
-            "albums": [
-                {
-                    "id": 1,
-                    "title": "Hunky Dory",
-                    "release_date": "1971-12-17",
-                    "titles": [
-                        "Changes",
-                        "Oh! You Pretty Things",
-                        "Eight Line Poem",
-                        "Life On Mars?",
-                        "Kooks",
-                        "Quicksand",
-                        "Fill Your Heart",
-                        "Andy Warhol",
-                        "Song For Bob Dylan"
-                    ]
-                },
-                {
-                    "id": 2,
-                    "title": "The Rise and Fall of Ziggy Stardust and the Spiders from Mars",
-                    "release_date": "1972-06-06",
-                    "titles": [
-                        "Five Years",
-                        "Soul Love",
-                        "Moonage Daydream",
-                        "Starman",
-                        "It Ain't Easy",
-                        "Lady Stardust",
-                        "Star",
-                        "Hang On to Yourself",
-                        "Ziggy Stardust",
-                        "Suffragette City"
-                    ]
-                }
-
-            ],
-            "tags": [
-                "Pop", 
-                "British",
-                "Rock",
-                "Singer-songwriter"
-            ]
-
+          "id": 1,
+          "title": "Hunky Dory",
+          "release_date": "1971-12-17",
+          "titles": [
+            "Changes",
+            "Oh! You Pretty Things",
+            "Eight Line Poem",
+            "Life On Mars?",
+            "Kooks",
+            "Quicksand",
+            "Fill Your Heart",
+            "Andy Warhol",
+            "Song For Bob Dylan"
+          ]
+        },
+        {
+          "id": 2,
+          "title": "The Rise and Fall of Ziggy Stardust and the Spiders from Mars",
+          "release_date": "1972-06-06",
+          "titles": [
+            "Five Years",
+            "Soul Love",
+            "Moonage Daydream",
+            "Starman",
+            "It Ain't Easy",
+            "Lady Stardust",
+            "Star",
+            "Hang On to Yourself",
+            "Ziggy Stardust",
+            "Suffragette City"
+          ]
         }
-    ]
+      ],
+      "tags": [
+        "Pop",
+        "British",
+        "Rock",
+        "Singer-songwriter"
+      ]
+    },
+    {
+      "id": "2",
+      "first_name": "John",
+      "last_name": "Lennon",
+      "birth_date": "1940-10-09",
+      "death_date": "1980-12-08",
+      "birth_place": "Liverpool, England",
+      "death_place": "New York, New York, USA",
+      "albums": [
+        {
+          "id": 3,
+          "title": "Imagine",
+          "release_date": "1971-09-09",
+          "titles": [
+            "Imagine",
+            "Crippled Inside",
+            "Jealous Guy",
+            "It's So Hard",
+            "I Don't Wanna Be a Soldier",
+            "Gimme Some Truth",
+            "Oh My Love",
+            "How Do You Sleep?",
+            "How?",
+            "Oh Yoko!"
+          ]
+        }
+      ],
+      "tags": [
+        "Pop",
+        "British",
+        "Rock",
+        "Singer-songwriter"
+      ]
+    },
+    {
+      "id": "3",
+      "first_name": "Steevie",
+      "last_name": "Nicks",
+      "birth_date": "1948-05-26",
+      "birth_place": "Phoenix, Arizona, USA",
+      "albums": [
+        {
+          "id": 4,
+          "title": "Bella Donna",
+          "release_date": "1981-09-25",
+          "titles": [
+            "Edge of Seventeen",
+            "Stop Draggin' My Heart Around",
+            "Leather and Lace",
+            "Think About It",
+            "After the Glitter Fades",
+            "Bella Donna",
+            "Leaving on a Jet Plane"
+          ]
+        }
+      ],
+      "tags": [
+        "Pop",
+        "American",
+        "Rock",
+        "Singer-songwriter"
+      ]
+    }
+  ]
 }

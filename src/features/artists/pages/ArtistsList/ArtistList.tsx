@@ -2,29 +2,63 @@ import {
   ArrayField,
   ChipField,
   Datagrid,
-  DateField,
+  DeleteButton,
+  EditButton,
+  FunctionField,
   List,
+  ShowButton,
   SingleFieldList,
-  TextField,
+  WrapperField,
 } from "react-admin";
 
 export default function ArtistList() {
   return (
     <List>
-      <Datagrid rowClick="edit">
-        <TextField source="id" />
-        <TextField source="first_name" />
-        <TextField source="last_name" />
-        <DateField source="birth_date" />
-        <DateField source="death_date" />
-        <TextField source="birth_place" />
-        <TextField source="death_place" />
+      <Datagrid rowClick="show">
+        <FunctionField
+          label="Nom"
+          render={(record: any) => {
+            return `${record.first_name} ${record.last_name}`;
+          }}
+          sortBy="Nom"
+          sortable
+        />
+        {/* Transforme une date au format local */}
+        <FunctionField 
+            label= "Date de naissance"
+            render={(record: any) => {
+                return `${record.birth_date.toLocaleString()}`;
+            }}
+        />
+        {/* Gère le cas ou la date de décès est vide */}
+        <FunctionField
+            label="Date de décès"
+            render={(record: any) => {
+                if (record.death_date) {return `${record.death_date.toLocaleString()}`}
+                else {return "Vivant"}
+            }}
+        />
+        {/* Parcours la liste des albums */}
         <ArrayField source="albums">
-          <SingleFieldList>
+          <SingleFieldList linkType={false}>
+            {/* Et retourne l'attribut 'titre' de chaque album */}
             <ChipField source="title" />
           </SingleFieldList>
         </ArrayField>
-        <TextField source="tags" />
+        <ArrayField source="tags">
+            <SingleFieldList linkType={false}>
+                <FunctionField 
+                    render={(record: any) => {
+                        return <ChipField record={{tags: record}} source="tags" />
+                    }} 
+                />
+            </SingleFieldList>
+        </ArrayField>
+        <WrapperField label="Actions" textAlign="right">
+            <ShowButton label="" />
+            <EditButton label="" />
+            <DeleteButton label="" />
+        </WrapperField>
       </Datagrid>
     </List>
   );
