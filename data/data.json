@@ -1,6 +1,7 @@
 {
     "artists": [
         {
+            "id": "1",
             "first_name": "David",
             "last_name": "Bowie",
             "birth_date": "1947-01-08",
