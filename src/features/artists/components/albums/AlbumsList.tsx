@@ -8,6 +8,7 @@ import {
   useEditController,
   useRecordContext,
 } from "react-admin";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 /**
  * Affiche les albums de l'artiste sous forme de liste.
@@ -59,8 +60,9 @@ export default function AlbumsList() {
           return (
             <Button
               onClick={() => handleClick(record.title, record.release_date)}
-              label="Supprimer"
-            />
+            >
+              <DeleteIcon />
+            </Button>
           );
         }}
       />
