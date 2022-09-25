@@ -9,13 +9,33 @@ import {
   WrapperField,
   ListContextProvider,
   useList,
+  WithRecord,
+  useEditController,
 } from "react-admin";
+import { Typography } from "@mui/material";
+import Rating from "@mui/material/Rating";
 
 export default function CommentsList() {
-  const record = useRecordContext();
+  const { save, record } = useEditController({redirect: "show"});
   const listContext = useList({ data: record.comments });
+
+  const handleChange = (event: any, newNote: any, comment: any) => {
+    // Get index of the comment
+    const index = record.comments.findIndex(
+      (commentUpdate: any) => commentUpdate === comment
+    );
+
+    // eslint-disable-next-line eqeqeq
+    if (comment.note == +event.target.value) {
+      return;
+    } else {
+      record.comments[index].note = +event.target.value;
+      save?.(record);
+    }
+  };
   return (
     <ListContextProvider value={listContext}>
+      <Typography variant="h5">Commentaires</Typography>
       <Datagrid bulkActionButtons={false}>
         <FunctionField
           label="Date"
@@ -28,10 +48,23 @@ export default function CommentsList() {
           }}
         />
         <TextField source="comment" />
-        <NumberField source="note" />
+        <WithRecord
+          label="Note"
+          render={(record: any) => {
+            return (
+              <Rating
+                name="read-only"
+                value={record.note}
+                onChange={(event: any, newNote: any) =>
+                  handleChange(event, newNote, record)
+                }
+              />
+            );
+          }}
+        />
         <WrapperField textAlign="right">
-            {/* NB : pour l'édition, utiliser l'éditable datagrid */}
-          <EditButton label="" /> 
+          {/* NB : pour l'édition, utiliser l'éditable datagrid */}
+          <EditButton label="" />
         </WrapperField>
       </Datagrid>
     </ListContextProvider>
