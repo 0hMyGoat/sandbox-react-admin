@@ -7,14 +7,28 @@ import {
   SingleFieldList,
   ChipField,
   WrapperField,
+  useEditController,
+  useRecordContext,
 } from "react-admin";
-import { AlbumIterator } from "../../components";
+import { AlbumIterator, TagCreate } from "../../components";
+import Chip from "@mui/material/Chip";
 
 /**
  * Affiche le composant qui display les détails d'un artiste.
  * @returns composant détail artiste
  */
 export default function ArtistShow() {
+  const [toggle, setToggle] = React.useState(false);
+  const record = useRecordContext();
+  const { save } = useEditController({ redirect: "show" });
+
+  const handleOnDelete = (tagToDelete: string) => {
+    console.log(tagToDelete);
+    console.log(record);
+    const tagIndex = record.tags.findIndex((tag: any) => tag === tagToDelete);
+    console.log(tagIndex);
+    // record.tags.splice(tagIndex, 1);
+  };
   return (
     <Show>
       <SimpleShowLayout>
@@ -46,15 +60,29 @@ export default function ArtistShow() {
           />
         </WrapperField>
         {/* Boucler sur une liste de string */}
-        <ArrayField source="tags">
-          <SingleFieldList>
-            <FunctionField
-              render={(record: any) => {
-                return <ChipField record={{ tags: record }} source="tags" />;
-              }}
+        <ArrayField source="tags" label="Tags">
+          <>
+            <SingleFieldList linkType={false}>
+              <FunctionField
+                render={(record: any) => {
+                  return (
+                    <ChipField
+                      record={{ tags: record }}
+                      source="tags"
+                      onDelete={() => handleOnDelete(record)}
+                    />
+                  );
+                }}
+              />
+            </SingleFieldList>
+            <Chip
+              label="Ajouter"
+              sx={{ margin: "5px" }}
+              onClick={() => setToggle(!toggle)}
             />
-          </SingleFieldList>
+          </>
         </ArrayField>
+        {toggle && <TagCreate />}
         {/* Opérations sur attribut non existant */}
         <FunctionField
           render={(record: any) => {
@@ -62,7 +90,7 @@ export default function ArtistShow() {
           }}
           label="Albums"
         />
-          <AlbumIterator />
+        <AlbumIterator />
       </SimpleShowLayout>
     </Show>
   );
