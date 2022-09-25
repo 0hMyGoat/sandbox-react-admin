@@ -1,6 +1,11 @@
 import * as React from "react";
 import Chip from "@mui/material/Chip";
 
+/**
+ * Créé une liste de chips à partir d'une liste de string.
+ * @param props Liste des tags
+ * @returns Liste de chips
+ */
 export default function TagChipIterator(...props: any) {
   const generateChip = (max: number = 3) => {
     const records: any[] = props[0].records;
