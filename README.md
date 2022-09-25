@@ -1,46 +1,52 @@
-# Getting Started with Create React App
+# Description
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Répository pour s'amuser avec react-admin et tester ses limites.
+Il a aussi pour but de show-caser des utilisations avancées des hook que propose react admin.
 
-## Available Scripts
+## ShowCases
 
-In the project directory, you can run:
+Les deux showcases utilisent les hooks `useRecordContext` et `useEditController`.
 
-### `npm start`
+- `useRecordContext` : permet de récupérer le record courant et le manipuler
+- `useEditController` : ajoute tous les éléments de l'interface d'édition (record, save, loading, etc.)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Manipulation de liste
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Voir le composant `TagCreate` dans `src/features/artists/components/tags/TagCreate.tsx` pour voir comment manipuler les listes.
 
-### `npm test`
+### Manipulation de liste d'objets
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Le composant `AlbumIterator` dans `src/features/artists/components/albums` montre à la fois l'affichage de liste et l'insertion d'objets dépourvus d'`id` dans la liste.
+Il appelle deux composants distincts, pour afficher et ajouter des albums. Le composant d'affichage permet aussi la suppression d'albums via un bouton directement présrent dans la liste.
 
-### `npm run build`
+## Setup
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```sh
+git clone https://github.com/0hMyGoat/sandbox-react-admin.git
+cd sandbox-react-admin
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Démarrage
 
-### `npm run eject`
+```sh
+npm run api # Démarre l'API json-server
+npm start # Démarre le front
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Arborecense
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```sh
+└───features # Liste des features
+    └───artists # Feature artiste
+        ├───components # Composants utilisés par la feature
+        │   ├───albums # Composants pour gérer les albums
+        │   └───tags # Composants pour gérer les tags
+        └───pages # Pages de la feature artiste (CRUD)
+            ├───ArtistCreate # Page de création d'un artiste
+            ├───ArtistEdit # Page d'édition d'un artiste
+            ├───ArtistShow # Page de visualisation d'un artiste
+            └───ArtistsList # Page de liste des artistes
+```
