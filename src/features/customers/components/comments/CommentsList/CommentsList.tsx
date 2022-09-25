@@ -2,8 +2,6 @@ import * as React from "react";
 import {
   Datagrid,
   TextField,
-  NumberField,
-  useRecordContext,
   FunctionField,
   EditButton,
   WrapperField,
