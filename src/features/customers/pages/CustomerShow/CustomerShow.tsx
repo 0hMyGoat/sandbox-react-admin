@@ -6,7 +6,7 @@ import {
   SimpleShowLayout,
   TextField,
 } from "react-admin";
-import { CommentsIterator, CommentsList } from "../../components/comments";
+import { CommentsIterator } from "../../components/comments";
 
 export default function CustomerShow() {
   return (

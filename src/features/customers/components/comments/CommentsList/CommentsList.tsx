@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import {
   Datagrid,
   TextField,
@@ -10,7 +10,6 @@ import {
   ListContextProvider,
   useList,
 } from "react-admin";
-import { CommentEdit } from "../";
 
 export default function CommentsList() {
   const record = useRecordContext();

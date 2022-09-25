@@ -1,15 +1,11 @@
 import * as React from "react";
 import {
   ArrayInput,
-  DateInput,
   Edit,
   FormTab,
-  NumberInput,
-  SimpleForm,
   SimpleFormIterator,
   Tab,
   TabbedForm,
-  TabbedShowLayout,
   TextInput,
 } from "react-admin";
 import { CommentsIterator } from "../../components/comments";

@@ -5,12 +5,6 @@ import {
   NumberInput,
   SaveButton,
   useEditController,
-  required,
-  minLength,
-  number,
-  minValue,
-  WrapperField,
-  EditButton,
 } from "react-admin";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 
