@@ -10,10 +10,22 @@ export default function AlbumIterator() {
     
     const [toggle, setToggle] = React.useState(false);
 
+    function jumToComponent() {
+      const element = document.getElementById("titleForm");
+      console.log(element)
+      element?.scrollIntoView();
+    }
+
     /**
      * Change le boolean toggle pour afficher le formulaire d'ajout d'album
      */
-    const handleClick = () => setToggle(!toggle);
+    const handleClick = () => {
+      setToggle(!toggle);
+      setTimeout(() => {
+      jumToComponent();
+      }, 100);
+
+    }
 
   return (
     <>
@@ -25,3 +37,4 @@ export default function AlbumIterator() {
     </>
   );
 }
+
