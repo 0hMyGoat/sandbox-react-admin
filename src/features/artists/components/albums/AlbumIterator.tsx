@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ArrayField, Button } from "react-admin";
+import { ArrayField, Button, useRecordContext } from "react-admin";
 import { AlbumsList, AlbumCreate } from "./";
 
 /**
@@ -7,34 +7,30 @@ import { AlbumsList, AlbumCreate } from "./";
  * @returns Composant d'affichage/modification des albums d'un artiste
  */
 export default function AlbumIterator() {
-    
-    const [toggle, setToggle] = React.useState(false);
+  const [toggle, setToggle] = React.useState(false);
 
-    function jumToComponent() {
-      const element = document.getElementById("titleForm");
-      console.log(element)
-      element?.scrollIntoView();
-    }
+  function jumToComponent() {
+    const element = document.getElementById("titleForm");
+    element?.scrollIntoView();
+  }
 
-    /**
-     * Change le boolean toggle pour afficher le formulaire d'ajout d'album
-     */
-    const handleClick = () => {
-      setToggle(!toggle);
-      setTimeout(() => {
+  /**
+   * Change le boolean toggle pour afficher le formulaire d'ajout d'album
+   */
+  const handleClick = () => {
+    setToggle(!toggle);
+    setTimeout(() => {
       jumToComponent();
-      }, 100);
-
-    }
+    }, 100);
+  };
 
   return (
     <>
-      <ArrayField source="albums">
-        <AlbumsList />
-      </ArrayField>
-      <Button onClick={handleClick} label="Ajouter un album"/>
-      {toggle && <AlbumCreate />}
-    </>
+        <ArrayField source="albums">
+          <AlbumsList />
+        </ArrayField>
+        <Button onClick={handleClick} label="Ajouter un album" />
+        {toggle && <AlbumCreate />}
+      </>
   );
 }
-
