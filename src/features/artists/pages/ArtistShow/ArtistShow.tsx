@@ -19,6 +19,7 @@ import Chip from "@mui/material/Chip";
 export default function ArtistShow() {
   const [toggle, setToggle] = React.useState(false);
   const { save, record } = useEditController({ redirect: "show" });
+  const dateFormat: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
 
   const handleOnDelete = (tagToDelete: string) => {
     const tagIndex = record.tags.findIndex((tag: any) => tag === tagToDelete);
@@ -37,7 +38,7 @@ export default function ArtistShow() {
         <WrapperField label="Naissance - Mort">
           <FunctionField
             render={(record: any) => {
-              return `${record.birth_date.toLocaleString()} @ ${
+              return `${new Date(record.birth_date).toLocaleDateString('fr-FR', dateFormat)} @ ${
                 record.birth_place
               }`;
             }}
@@ -46,7 +47,7 @@ export default function ArtistShow() {
           <FunctionField
             render={(record: any) => {
               if (record.death_date) {
-                return `${record.death_date.toLocaleString()} @ ${
+                return `${new Date(record.death_date).toLocaleDateString('fr-FR', dateFormat)} @ ${
                   record.death_place
                 }`;
               } else {
