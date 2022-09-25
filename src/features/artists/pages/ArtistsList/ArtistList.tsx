@@ -49,7 +49,6 @@ export default function ArtistList() {
         <FunctionField
           label="Albums"
           render={(record: any) => {
-            console.log(record.albums);
             return <AlbumChipIterator records={record.albums} max={5} />;
           }}
         />

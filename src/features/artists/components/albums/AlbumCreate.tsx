@@ -51,7 +51,7 @@ export default function AlbumCreate() {
       <TextInput source="title" onChange={handleChange} sx={{marginLeft: '5px', width: '63%'}} id="titleForm"/>
       <DateInput source="release_date" onChange={handleChange} sx={{ marginLeft: '1%' }} />
       {/* Et on passe le handleSubmit sur le savebutton */}
-      <SaveButton onClick={handleSubmit} sx={{ marginTop: '15px', marginLeft: "1%" }} />
+      <SaveButton onClick={handleSubmit} sx={{ marginTop: '15px', marginLeft: "1%" }} label="Ajouter"/>
     </Form>
   );
 }
