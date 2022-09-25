@@ -19,15 +19,12 @@ import Chip from "@mui/material/Chip";
  */
 export default function ArtistShow() {
   const [toggle, setToggle] = React.useState(false);
-  const record = useRecordContext();
-  const { save } = useEditController({ redirect: "show" });
+  const { save, record } = useEditController({ redirect: "show" });
 
   const handleOnDelete = (tagToDelete: string) => {
-    console.log(tagToDelete);
-    console.log(record);
     const tagIndex = record.tags.findIndex((tag: any) => tag === tagToDelete);
-    console.log(tagIndex);
-    // record.tags.splice(tagIndex, 1);
+    record.tags.splice(tagIndex, 1);
+    save?.(record);
   };
   return (
     <Show>
