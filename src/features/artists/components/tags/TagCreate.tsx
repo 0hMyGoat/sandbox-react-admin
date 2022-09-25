@@ -2,19 +2,33 @@ import * as React from 'react'
 import { Form, SaveButton, TextInput, useEditController, useRecordContext } from 'react-admin'
 import AddBoxIcon from '@mui/icons-material/AddBox';
 
+/**
+ * Permet l'ajout de tags à un artiste.
+ * @returns Composant de création de tag
+ */
 export default function TagCreate() {
 
+    // Record context pour récupérer toutes les infos du record
     const record = useRecordContext();
+    // Hook pour récupérer le controller de l'edit de react admin
     const { save } = useEditController({ redirect: 'show' });
-
+    // State pour stocker le tag à ajouter
     const [newTag, setNewTag] = React.useState('')
 
-    const handleChange = (e: any) => {
-        setNewTag(e.target.value)
+    /**
+     * Récupère la valeur du champ de texte et l'affecte au state.
+     * @param event
+     */
+    const handleChange = (event: any) => {
+        setNewTag(event.target.value)
     }
 
-    const handleSubmit = (e: any) => {
-        e.preventDefault()
+    /**
+     * Ajout un tag au tableau de tags du record et sauvegarde le record.
+     * @param event 
+     */
+    const handleSubmit = (event: any) => {
+        event.preventDefault()
         record.tags.push(newTag)
         save?.(record)
     }
