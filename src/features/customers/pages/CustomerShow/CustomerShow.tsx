@@ -9,6 +9,10 @@ import {
 } from "react-admin";
 import { CommentsIterator } from "../../components/comments";
 
+/**
+ * Permet de voir le détail d'un client.
+ * @returns Composant détail d'un client
+ */
 export default function CustomerShow() {
   return (
     <Show>

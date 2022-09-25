@@ -9,6 +9,10 @@ import {
 } from "react-admin";
 import { TagChipIterator, AlbumChipIterator } from "../../components";
 
+/**
+ * Affiche la liste des artistes.
+ * @returns Composant liste des artistes
+ */
 export default function ArtistList() {
   return (
     <List>

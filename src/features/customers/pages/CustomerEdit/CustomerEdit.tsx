@@ -10,6 +10,10 @@ import {
 } from "react-admin";
 import { CommentsIterator } from "../../components/comments";
 
+/**
+ * Composant qui permet d'éditer un client
+ * @returns Composant formulaire d'édition de client
+ */
 export default function CustomerEdit() {
   return (
     <Edit>

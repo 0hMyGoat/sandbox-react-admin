@@ -8,6 +8,10 @@ import {
 } from "react-admin";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 
+/**
+ * Permet la création de commentaire.
+ * @returns Composant formulaire de création de commentaire
+ */
 export default function CommentCreate() {
   const [newComment, setNewComment] = React.useState({
     date: new Date(),

@@ -10,6 +10,10 @@ import {
   WrapperField,
 } from "react-admin";
 
+/**
+ * Retourne la liste des clients
+ * @returns Composant liste des clients
+ */
 export default function CustomerList() {
   return (
     <List>

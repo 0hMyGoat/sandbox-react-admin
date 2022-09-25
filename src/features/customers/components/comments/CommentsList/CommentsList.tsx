@@ -13,10 +13,21 @@ import {
 import { Typography } from "@mui/material";
 import Rating from "@mui/material/Rating";
 
+/**
+ * Affiche le composant de liste des commentaires.
+ * @returns Composant liste de commentaire
+ */
 export default function CommentsList() {
   const { save, record } = useEditController({redirect: "show"});
   const listContext = useList({ data: record.comments });
 
+  /**
+   * Met à jour la note dans le record et l'enregistre.
+   * @param event Contenu de l'événement.
+   * @param newNote Ecart entre la note actuelle et la nouvelle note.
+   * @param comment Record du commentaire.
+   * @returns 
+   */
   const handleChange = (event: any, newNote: any, comment: any) => {
     // Get index of the comment
     const index = record.comments.findIndex(
