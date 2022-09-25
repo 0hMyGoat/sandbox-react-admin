@@ -94,12 +94,7 @@
           "release_date": "2013-03-12"
         }
       ],
-      "tags": [
-        "Pop",
-        "British",
-        "Rock",
-        "Singer-songwriter"
-      ]
+      "tags": ["Pop", "British", "Rock", "Singer-songwriter"]
     },
     {
       "id": "2",
@@ -179,12 +174,7 @@
           "release_date": "1988-01-01"
         }
       ],
-      "tags": [
-        "Pop",
-        "British",
-        "Rock",
-        "Singer-songwriter"
-      ]
+      "tags": ["Pop", "British", "Rock", "Singer-songwriter"]
     },
     {
       "id": "3",
@@ -230,11 +220,62 @@
           "release_date": "2014-09-25"
         }
       ],
-      "tags": [
-        "Pop",
-        "American",
-        "Rock",
-        "Singer-songwriter"
+      "tags": ["Pop", "American", "Rock", "Singer-songwriter"]
+    }
+  ],
+  "customers": [
+    {
+      "id": "1",
+      "first_name": "Sherlock",
+      "last_name": "Holmes",
+      "email": "sherlock.holmes@gmail.com",
+      "phone": "555-555-5555",
+      "address": [
+        {
+          "number": "221B",
+          "street": "Baker street",
+          "city": "London",
+          "state": "London",
+          "country": "UK",
+          "postal_code": "NW1 6XE",
+          "type": "Habitation"
+        },
+        {
+          "number": "221B",
+          "street": "Baker street",
+          "city": "London",
+          "state": "London",
+          "country": "UK",
+          "postal_code": "NW1 6XE",
+          "type": "Facturation"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "first_name": "Jeff",
+      "last_name": "Tuche",
+      "email": "j.tuche@yahoo.fr",
+      "phone": "555-555-5555",
+      "address": [
+        {
+          "number": "1",
+          "street": "Rue de la Paix",
+          "city": "Paris",
+          "state": "Paris",
+          "country": "France",
+          "postal_code": "75001",
+          "type": "Facturation"
+        },
+        {
+          "number": "6",
+          "street": "Place des frites",
+          "city": "Bouzolle",
+          "state": "Picardie",
+          "country": "France",
+          "postal_code": "33001",
+          "type": "Habitation"
+        }
       ]
     }
   ]
