@@ -8,10 +8,13 @@ import {
   List,
   ShowButton,
   SingleFieldList,
+  useRecordContext,
   WrapperField,
 } from "react-admin";
+import { TagChipIterator, AlbumChipIterator } from "../../components";
 
 export default function ArtistList() {
+  const record = useRecordContext();
   return (
     <List>
       <Datagrid rowClick="show">
@@ -38,22 +41,47 @@ export default function ArtistList() {
                 else {return "Vivant"}
             }}
         />
-        {/* Parcours la liste des albums */}
-        <ArrayField source="albums">
+        {/* ====================================================== */}
+        {/* Parcours la liste des albums (version classique) */}
+        {/* ====================================================== */}
+        {/* Version classique avec un arrayfield */}
+        {/* <ArrayField source="albums">
           <SingleFieldList linkType={false}>
-            {/* Et retourne l'attribut 'titre' de chaque album */}
+            Et retourne l'attribut 'titre' de chaque album
             <ChipField source="title" />
           </SingleFieldList>
-        </ArrayField>
-        <ArrayField source="tags">
-            <SingleFieldList linkType={false}>
+        </ArrayField> */}
+        {/* ====================================================== */}
+        {/* Parcours la liste des albums (itérateur custom) */}
+        {/* ====================================================== */}
+        <FunctionField 
+            label="Albums"
+            render={(record: any) => {
+              console.log(record.albums);
+                return <AlbumChipIterator records={record.albums} max={5} />
+            }}
+        />
+        {/* ======================================================= */}
+        {/* Parcours la liste des tags (version classique) */}
+        {/* ======================================================= */}
+        {/* <ArrayField source="tags" >
+            <SingleFieldList linkType={false} >
                 <FunctionField 
                     render={(record: any) => {
                         return <ChipField record={{tags: record}} source="tags" />
                     }} 
                 />
             </SingleFieldList>
-        </ArrayField>
+        </ArrayField> */}
+        {/* ======================================================= */}
+        {/* Parcours la liste des tags (itérateur custom) */}
+        {/* ======================================================= */}
+        <FunctionField 
+            label="Tags"
+            render={(record: any) => {
+                return <TagChipIterator records={record.tags} />
+            }}
+        />
         <WrapperField label="Actions" textAlign="right">
             <ShowButton label="" />
             <EditButton label="" />
