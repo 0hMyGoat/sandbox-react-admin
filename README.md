@@ -5,7 +5,7 @@ Il a aussi pour but de show-caser des utilisations avancées des hook que propos
 
 ## ShowCases
 
-Les deux showcases utilisent les hooks `useRecordContext` et `useEditController`.
+Les showcases utilisent les hooks `useRecordContext` et `useEditController`.
 
 - `useRecordContext` : permet de récupérer le record courant et le manipuler
 - `useEditController` : ajoute tous les éléments de l'interface d'édition (record, save, loading, etc.)
@@ -18,6 +18,10 @@ Voir le composant `TagCreate` dans `src/features/artists/components/tags/TagCrea
 
 Le composant `AlbumIterator` dans `src/features/artists/components/albums` montre à la fois l'affichage de liste et l'insertion d'objets dépourvus d'`id` dans la liste.
 Il appelle deux composants distincts, pour afficher et ajouter des albums. Le composant d'affichage permet aussi la suppression d'albums via un bouton directement présrent dans la liste.
+
+### Ajout de commentaires
+
+Voir le composant `Customer` et ses sous-composants dans `src/features/customers/components` pour voir comment ajouter des commentaires à un élément depuis une liste.
 
 ## Setup
 
@@ -39,14 +43,28 @@ npm start # Démarre le front
 ## Arborecense
 
 ```sh
-└───features # Liste des features
-    └───artists # Feature artiste
-        ├───components # Composants utilisés par la feature
-        │   ├───albums # Composants pour gérer les albums
-        │   └───tags # Composants pour gérer les tags
-        └───pages # Pages de la feature artiste (CRUD)
-            ├───ArtistCreate # Page de création d'un artiste
-            ├───ArtistEdit # Page d'édition d'un artiste
-            ├───ArtistShow # Page de visualisation d'un artiste
-            └───ArtistsList # Page de liste des artistes
+└───features # Features
+    ├───artists
+    │   ├───components # Composants propres à artistes
+    │   │   ├───albums
+    │   │   ├───ChipListIterator
+    │   │   └───tags
+    │   └───pages # Pages propres à artistes
+    │       ├───ArtistShow
+    │       └───ArtistsList
+    └───customers 
+        ├───components
+        │   ├───address
+        │   │   ├───AddressCreate
+        │   │   ├───AddressesList
+        │   │   └───AddressIterator
+        │   └───comments
+        │       ├───CommentCreate
+        │       ├───CommentEdit
+        │       ├───CommentsIterator
+        │       └───CommentsList
+        └───pages
+            ├───CustomerEdit
+            ├───CustomerShow
+            └───CustomersList
 ```
