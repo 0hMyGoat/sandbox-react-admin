@@ -7,6 +7,12 @@ import Chip from "@mui/material/Chip";
  * @returns Liste de chips
  */
 export default function TagChipIterator(...props: any) {
+  
+  /**
+   * Génère les chips dans une limite donnée et ajoute le nombre de chip restant.
+   * @param max Nombre maximum de tags à afficher
+   * @returns Liste de chips
+   */
   const generateChip = (max: number = 3) => {
     const records: any[] = props[0].records;
     const recordsLength = records.length;

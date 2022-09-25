@@ -1,7 +1,17 @@
 import * as React from "react";
 import Chip from "@mui/material/Chip";
 
+/**
+ * Génère une liste de chips à partir d'une liste d'objet ayant un attribut 'title'.
+ * @param props liste des albums et maximum à afficher
+ * @returns Liste de chips 
+ */
 export default function AlbumChipIterator(...props: any) {
+  /**
+   * Génère les chips dans une limite donnée et ajoute le nombre de chip restant.
+   * @param max Nombre maximum d'albums à afficher
+   * @returns Liste de chips
+   */
   const generateChip = (max: number = 3) => {
     const records: any[] = props[0].records;
     const recordsLength = records.length;
